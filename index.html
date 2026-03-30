@@ -982,7 +982,7 @@ input[type=range]::-webkit-slider-thumb {
       </svg>
     </div>
     <div>
-      <div class="hdr-title">Informasi Bahaya Banjir</div>
+      <div class="hdr-title">WebGIS | Bahaya Banjir</div>
       <div class="hdr-sub">Membuka cerita yang tersembunyi di balik bentang alam Sumatera Utara</div>
     </div>
   </div>
@@ -1056,7 +1056,7 @@ input[type=range]::-webkit-slider-thumb {
       <div class="lr" data-key="curahhujan">
         <div class="lsw" style="background:#74add1;"></div>
         <span class="ln">Curah Hujan</span>
-        <span class="wbg">25%</span>
+        <span class="wbg">15%</span>
         <button class="ibtn" data-desc="dsc-ch">i</button>
         <button class="tog" data-key="curahhujan"></button>
       </div>
@@ -1144,7 +1144,27 @@ input[type=range]::-webkit-slider-thumb {
       </div>
     </div>
 
-  
+    <!-- ═══════════════════════════════════════════
+         TAMBAHAN: Layer Kerentanan Banjir
+    ════════════════════════════════════════════ -->
+    <div class="li">
+      <div class="lr" data-key="kerentanan">
+        <div class="lsw" style="background:#7b2d8b;"></div>
+        <span class="ln">Peta Kerentanan Banjir</span>
+        <button class="ibtn" data-desc="dsc-kr">i</button>
+        <button class="tog" data-key="kerentanan"></button>
+      </div>
+      <div class="ldesc" id="dsc-kr">
+        <div class="di">
+          <strong>Kerentanan Banjir</strong> — peta kerentanan wilayah terhadap banjir yang mempertimbangkan kondisi sosial, fisik, dan lingkungan. Diklasifikasikan menjadi 5 kelas: Sangat Rendah hingga Sangat Tinggi. Layer: <em>sumut:kerentanan</em>.
+          <br/><button class="rm" data-more="m-kr">▼ Baca lebih lanjut</button>
+          <div class="rm-more" id="m-kr">Kerentanan (vulnerability) mengukur tingkat keterpaparan dan sensitivitas suatu wilayah terhadap bahaya banjir, meliputi kepadatan penduduk, kondisi infrastruktur, dan kemampuan adaptasi masyarakat. Nilai tinggi menunjukkan wilayah dengan kapasitas adaptasi rendah dan eksposur tinggi terhadap dampak banjir.</div>
+        </div>
+      </div>
+    </div>
+    <!-- ═══════════════════════════════════════════
+         AKHIR TAMBAHAN
+    ════════════════════════════════════════════ -->
 
     <!-- Info tip -->
     <div style="margin:12px 10px 0;padding:10px 12px;background:var(--a-l);border:1px solid var(--a-m);border-radius:var(--r);display:flex;gap:8px;align-items:flex-start;">
@@ -1351,18 +1371,18 @@ const WS = 'sumut';
 
 /* ── LAYER DEFINITIONS ───────────────────────── */
 const D = {
-  gfi:{
+gfi:{
     g:'GFIn', t:'Geomorphic Flood Index (GFI)',
     leg:[
-      {c:'#2166ac',k:'Sangat Rendah',r:'Topografi Sangat Tinggi'},
-      {c:'#74add1',k:'Rendah',r:'Topografi Tinggi'},
+      {c:'#1a6b2f',k:'Sangat Rendah',r:'Topografi Sangat Tinggi'},
+      {c:'#4caf50',k:'Rendah',r:'Topografi Tinggi'},
       {c:'#fee090',k:'Sedang',r:'Topografi Sedang'},
       {c:'#f46d43',k:'Tinggi',r:'Topografi Rendah'},
       {c:'#a50026',k:'Sangat Tinggi',r:'Topografi Sangat Rendah'}
     ],
     cls:{1:'Sangat Rendah',2:'Rendah',3:'Sedang',4:'Tinggi',5:'Sangat Tinggi'},
     rng:{1:'41–75 mm',2:'76–110 mm',3:'111–145 mm',4:'146–180 mm',5:'181–215 mm'},
-    clr:{1:'#2166ac',2:'#74add1',3:'#fee090',4:'#f46d43',5:'#a50026'},
+    clr:{1:'#1a6b2f',2:'#4caf50',3:'#fee090',4:'#f46d43',5:'#a50026'},
     msg:{
       1:'Potensi genangan sangat rendah berdasarkan morfologi topografi.',
       2:'Potensi genangan rendah — area lebih tinggi dari jaringan sungai.',
@@ -1371,18 +1391,18 @@ const D = {
       5:'Potensi genangan sangat tinggi — wilayah rentan banjir berulang berdasarkan morfologi.'
     }
   },
-  curahhujan:{
+curahhujan:{
     g:'CurahHujan', t:'Curah Hujan Tahunan',
     leg:[
-      {c:'#1a9641',k:'Sangat Rendah',r:'41–75 mm'},
-      {c:'#a6d96a',k:'Rendah',r:'76–110 mm'},
-      {c:'#ffffbf',k:'Sedang',r:'111–145 mm'},
-      {c:'#fdae61',k:'Tinggi',r:'146–180 mm'},
-      {c:'#d7191c',k:'Sangat Tinggi',r:'181–215 mm'}
+      {c:'#4a86c8',k:'Sangat Rendah',r:'41–75 mm'},
+      {c:'#7db8e8',k:'Rendah',r:'76–110 mm'},
+      {c:'#fef08a',k:'Sedang',r:'111–145 mm'},
+      {c:'#f4a17a',k:'Tinggi',r:'146–180 mm'},
+      {c:'#c0394b',k:'Sangat Tinggi',r:'181–215 mm'}
     ],
     cls:{1:'Sangat Rendah',2:'Rendah',3:'Sedang',4:'Tinggi',5:'Sangat Tinggi',6:'Sangat Tinggi'},
     rng:{1:'Kelas 1',2:'Kelas 2',3:'Kelas 3',4:'Kelas 4',5:'Kelas 5',6:'Kelas 5'},
-    clr:{1:'#1a9641',2:'#a6d96a',3:'#ffffbf',4:'#fdae61',5:'#d7191c',6:'#d7191c'},
+    clr:{1:'#4a86c8',2:'#7db8e8',3:'#fef08a',4:'#f4a17a',5:'#c0394b',6:'#c0394b'},
     msg:{
       1:'Curah hujan sangat rendah, kontribusi terhadap banjir minimal.',
       2:'Curah hujan rendah.',
@@ -1470,6 +1490,32 @@ const D = {
       4:'Zona bahaya banjir TINGGI — prioritas evakuasi dan kebijakan tata ruang wilayah.'
     }
   },
+  /* ══════════════════════════════════════════════
+     TAMBAHAN: Definisi layer kerentanan
+  ═════════════════════════════════════════════ */
+  kerentanan:{
+    g:'kerentanan', t:'Kerentanan Banjir',
+    leg:[
+      {c:'#1a6b2f',k:'Sangat Rendah',r:'Kerentanan yang aman dari Banjir'},
+      {c:'#4caf50',k:'Rendah',r:'Aman dan kurang rentang dari Banjir'},
+      {c:'#fee090',k:'Sedang',r:'Cukup Rentan Banjir'},
+      {c:'#f46d43',k:'Tinggi',r:'Rentan Banjir Tinggi'},
+      {c:'#a50026',k:'Sangat Tinggi',r:'Sangat Rentan Terhadap Banjir'}
+    ],
+    cls:{1:'Sangat Rendah',2:'Rendah',3:'Sedang',4:'Tinggi',5:'Sangat Tinggi'},
+    rng:{1:'Kelas 1',2:'Kelas 2',3:'Kelas 3',4:'Kelas 4',5:'Kelas 5'},
+    clr:{1:'#f1eef6',2:'#bdc9e1',3:'#74a9cf',4:'#2b8cbe',5:'#045a8d'},
+    msg:{
+      1:'Kerentanan sangat rendah — wilayah memiliki kapasitas adaptasi sangat tinggi terhadap banjir.',
+      2:'Kerentanan rendah — kondisi sosial dan fisik relatif baik dalam menghadapi banjir.',
+      3:'Kerentanan sedang — perlu peningkatan kapasitas masyarakat dan infrastruktur.',
+      4:'Kerentanan tinggi — wilayah dengan eksposur tinggi dan kapasitas adaptasi rendah.',
+      5:'Kerentanan sangat tinggi — prioritas intervensi mitigasi dan peningkatan kapasitas.'
+    }
+  },
+  /* ══════════════════════════════════════════════
+     AKHIR TAMBAHAN
+  ═════════════════════════════════════════════ */
   validasi:{
     g:'ValidasiBanjir', t:'Titik Validasi Lapangan',
     leg:[{c:'#e53935',k:'Kejadian Banjir',r:'Data BPBD & survei GPS',circ:true}],
@@ -1509,20 +1555,37 @@ let AK = null;
 
 /* ── GEOSERVER PING ───────────────────────────── */
 async function ping() {
+
   const pill = document.getElementById('gstag');
   const dot  = document.getElementById('gs-dot');
   const lbl  = document.getElementById('gs-lbl');
+
   try {
-    await fetch(`${GS}/web/`, { mode: 'no-cors', cache: 'no-store', signal: AbortSignal.timeout(5000) });
-    pill.className = 'gs-pill online';
-    dot.className  = 'gs-dot pulse';
-    lbl.textContent = 'GeoServer Online';
+
+    const res = await fetch(`${GS}/ows?service=WMS&request=GetCapabilities`, {
+      cache: 'no-store',
+      signal: AbortSignal.timeout(5000)
+    });
+
+    if(res.ok){
+
+      pill.className = 'gs-pill online';
+      dot.className  = 'gs-dot pulse';
+      lbl.textContent = 'GeoServer Online';
+
+    } else {
+      throw new Error();
+    }
+
   } catch {
+
     pill.className = 'gs-pill offline';
     dot.className  = 'gs-dot';
     lbl.textContent = 'GeoServer Offline';
+
   }
 }
+
 ping();
 setInterval(ping, 30000);
 
